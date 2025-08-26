@@ -1,0 +1,152 @@
+* { box-sizing: border-box; margin: 0; padding: 0; }
+img { max-width: 100%; height: auto; display: block; }
+
+body {
+    background-image: url("background.jpg");
+    background-size: cover;      /* scales image to always cover the screen */
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: scroll; /* allow scrolling on mobile for better performance */
+    
+    color: #0000EE;
+    font-weight: bold;
+    font-family: Arial, Helvetica, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    text-align: center;
+}
+
+/* ---------- Card ---------- */
+.card {
+    background: #fff;
+    width: 100%;
+    max-width: 720px;
+    padding: 20px;
+    border-radius: 16px;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+}
+
+/* ---------- Banner ---------- */
+.banner h1 {
+    font-family: "Lavishly Yours", cursive;
+    font-size: 2rem;
+    line-height: 1.1;
+    margin-bottom: 12px;
+}
+
+.banner img {
+    margin: 12px auto 4px;
+    border-radius: 12px;
+}
+
+.banner h2 {
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-top: 8px;
+}
+
+/* ---------- Content spacing ---------- */
+.content {
+    margin-top: 18px;
+}
+
+.details {
+    font-size: 1rem;
+    line-height: 1.5;
+    color: #2e3a4a;
+}
+
+/* ---------- Label + value rows (same line) ---------- */
+.grid {
+  /* Mobile-first: two-column rows so label and value share a line */
+    display: grid;
+    grid-template-columns: auto 1fr;  /* label width auto, value fills */
+    column-gap: 8px;
+    row-gap: 10px;
+    margin: 20px auto;
+    text-align: left; /* keep rows readable */
+    max-width: 560px;
+}
+
+.label {
+    font-weight: 700;
+    white-space: nowrap;
+}
+
+.label::after {
+    content: ":";       /* auto-colon after labels */
+    margin-left: 4px;
+}
+
+.value {
+    overflow-wrap: anywhere; /* long address/numbers wrap nicely on phones */
+}
+
+/* ---------- Buttons & actions ---------- */
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    text-decoration: none;
+    font-weight: 700;
+    border-radius: 10px;
+    padding: 12px 16px;
+    background: #4a6fa5;
+    color: #fff;
+    transition: transform .06s ease, box-shadow .2s ease, background .2s ease;
+     min-height: 44px; /* tap target */
+}
+
+.btn:hover { background: #3e5f8c; }
+.btn:active { transform: translateY(1px); }
+
+.photos, .actions {
+    margin: 18px 0;
+}
+
+.photos h3, .actions h3 {
+    font-size: 1rem;
+    margin-bottom: 10px;
+}
+
+.photos .btn, .actions .btn {
+    width: 100%;        /* full-width on small screens for easy tapping */
+    max-width: 360px;
+    margin: 6px auto;
+}
+
+/* ---------- Footer ---------- */
+.footer {
+    margin-top: 18px;
+    font-size: 0.95rem;
+    color: #4b5563;
+}
+
+/* ---------- Responsive enhancements ---------- */
+@media (min-width: 480px) {
+    .banner h1 { font-size: 2.4rem; }
+    .photos .btn, .actions .btn { width: auto; } /* side-by-side where there's room */
+    .actions .btn + .btn, .photos .btn + .btn { margin-left: 8px; }
+}
+
+@media (min-width: 640px) {
+    .card { padding: 28px; }
+    .banner h1 { font-size: 2.8rem; }
+    .banner h2 { font-size: 1.2rem; }
+    .details { font-size: 1.05rem; }
+    .grid { column-gap: 12px; row-gap: 12px; }
+}
+
+@media (min-width: 900px) {
+    body { padding: 32px; }
+    .card { padding: 36px; }
+    .banner h1 { font-size: 3rem; }
+}
+
+/* ---------- Accessibility niceties ---------- */
+@media (prefers-reduced-motion: reduce) {
+    .btn { transition: none; }
+}
