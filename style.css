@@ -3,10 +3,10 @@ img { max-width: 100%; height: auto; display: block; }
 
 body {
     background-image: url("background.jpg");
-    background-size: cover;      /* scales image to always cover the screen */
+    background-size: cover;      
     background-repeat: no-repeat;
     background-position: center;
-    background-attachment: scroll; /* allow scrolling on mobile for better performance */
+    background-attachment: scroll; 
     
     color: #0000EE;
     font-weight: bold;
@@ -145,6 +145,13 @@ body {
     .card { padding: 36px; }
     .banner h1 { font-size: 3rem; }
 }
+
+@media (min-width: 768px) {
+  body {
+    background-attachment: fixed;
+  }
+}
+
 
 /* ---------- Accessibility niceties ---------- */
 @media (prefers-reduced-motion: reduce) {
